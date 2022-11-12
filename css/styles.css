@@ -280,7 +280,7 @@ body {
     margin-right: auto; 
 }
 
-.hero .button {
+.button-index {
     color: var(--hero-text-color);
     background-color: var(--accent-text-color);
     border-color: var(--accent-text-color);
@@ -303,8 +303,8 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero .button:hover,
-.hero .button:focus {
+.button-index:hover,
+.button-index:focus {
     background-color: #188CE8;
     border-color: #188CE8;
 }
@@ -655,8 +655,12 @@ body {
     align-items: baseline;
 }
 
-.footer .flex-item+.flex-item {
+.footer .flex-item:nth-child(2) {
     margin-left: 70px;
+}
+
+.footer .flex-item:nth-child(3) {
+    margin-left: 93px;
 }
 
 .footer .logo {
@@ -736,6 +740,40 @@ body {
     fill: currentColor;
 }
 
+.footer-form {
+    display: flex;
+    gap: 12px;
+}
+
+.footer .label {
+    min-width: 358px;
+    height: 50px;
+}
+
+.footer .input {
+    width: 100%;
+    height: 100%;
+    padding-left: 16px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    color: #FFFFFF 60%;
+    background-color: var(--hero-bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.footer .button-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+.footer .button-icon {
+    fill: currentColor;
+    margin-left: 10px;
+}
+
 /**
   |============================
   | BACKDROP-MODAL
@@ -773,8 +811,10 @@ body {
     
     width: 528px;
     height: 581px;
-    padding-top: 8px;
-    padding-right: 8px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
 
     background: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -782,11 +822,16 @@ body {
 }
 
 .backdrop .button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    
     background-color: var(--primery-bg-color);
     width: 30px;
     height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    color: var(--accent-text-color);
     
     display: block;
     padding: 5px;
@@ -794,8 +839,123 @@ body {
     cursor: pointer;
 }
 
+.close {
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.close:hover,
+.close:focus {
+    fill: currentColor;
+}
 
+.form-title {
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    color: var(--title-text-color);
+    margin-bottom: 12px;
+}
 
+.form-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 
+.form-field:nth-child(-n+4) {
+    margin-bottom: 10px;
+}
 
+.check-field {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.modal-label,
+.textarea::placeholder {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em; 
+}
+
+.modal-input {
+    color: var(--title-text-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 42px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    bottom: 11px;
+    fill: currentColor;
+}
+
+.modal-input:focus {
+    border-color: var(--accent-text-color);
+}
+
+.modal-input:focus + .input-icon {
+    color: var(--accent-text-color);
+}
+
+.textarea::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.textarea {
+    padding: 0;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    appearance: none;
+}
+
+.checkbox {
+    appearance: none;
+    position: absolute;
+}
+
+.checkbox-icon {
+    display: inline-block;
+    border: 2px solid var(--title-text-color);
+    border-radius: 2px;
+}
+
+.checkbox:checked + .modal-label-agreement .checkbox-icon {
+    background-color: var(--accent-text-color);
+    border: none;
+}
+
+.modal-label-agreement {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.check-link {
+    color: var(--accent-text-color);
+}
+
+.modal-form .button-index {
+    min-width: 200px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
