@@ -863,6 +863,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    color: #212121;
 }
 
 .form-field:nth-child(-n+4) {
@@ -876,6 +877,7 @@ body {
 
 .modal-label,
 .textarea::placeholder {
+    color: var(--primery-text-color);
     font-weight: 400;
     font-size: 12px;
     line-height: 1.17;
@@ -883,14 +885,17 @@ body {
 }
 
 .modal-input {
-    color: var(--title-text-color);
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 42px;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
-    border-width: 1px;
+    outline-offset: -2px;
     cursor: pointer;
+
+    transition-property: outline;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-icon {
@@ -898,10 +903,16 @@ body {
     left: 12px;
     bottom: 11px;
     fill: currentColor;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-input:focus {
-    border-color: var(--accent-text-color);
+.modal-input:focus,
+.textarea:focus {
+    outline: 1px solid var(--accent-text-color);
+    outline-offset: -1px;
 }
 
 .modal-input:focus + .input-icon {
@@ -910,17 +921,20 @@ body {
 
 .textarea::placeholder {
     color: rgba(117, 117, 117, 0.5);
+    
+}
+
+.textarea {
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 16px;
     padding-right: 16px;
-}
-
-.textarea {
-    padding: 0;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
-    appearance: none;
+    
+    transition-property: outline;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox {
@@ -932,6 +946,10 @@ body {
     display: inline-block;
     border: 2px solid var(--title-text-color);
     border-radius: 2px;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox:checked + .modal-label-agreement .checkbox-icon {
