@@ -863,7 +863,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    color: #212121;
+    color: var(--title-text-color);
 }
 
 .form-field:nth-child(-n+4) {
